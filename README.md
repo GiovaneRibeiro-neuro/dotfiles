@@ -1,7 +1,13 @@
 # dotfiles
-My dotfiles and scripts to make my life easier. Works on MacOSX and Linux. Strongly inspired on [this](https://github.com/davidsonfellipe/dotfiles) project (Thanks Davidson!! :D)
+My dotfiles and scripts to make my life easier. Works on MacOSX and Linux. Strongly inspired on [this](https://github.com/davidsonfellipe/dotfiles) project (Thanks Davidson!! :D) and [this](https://www.atlassian.com/git/tutorials/dotfiles) link.
 
 ## How can I use it?
+
+Just run this line (For now, only valid for Arch Linux):
+
+```
+$ curl -o- https://raw.githubusercontent.com/giovanebribeiro/dotfiles/v1.0.0/cfg-install | /bin/bash
+```
 
 ```
 $ ./dot -h

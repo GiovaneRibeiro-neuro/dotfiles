@@ -3,3 +3,6 @@
 *.swo
 *.log
 vim-markdown-preview.html
+.cfg
+.ssh
+.aws
