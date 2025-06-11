@@ -17,3 +17,5 @@ $ curl -o- https://raw.githubusercontent.com/giovanebribeiro/dotfiles/master/cfg
 
 * [alacritty](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/alacritty/alacritty.toml)
 * [polybar](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/polybar/config.ini)
+* [picom](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/picom/config.ini)
+* [bspwm](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/bspwm/bspwmrc)/[sxhkd](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/sxhkd/sxhkdrc)

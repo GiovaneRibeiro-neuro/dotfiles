@@ -20,4 +20,4 @@ config config status.showUntrackedFiles no
 
 # Install dependencies per OS
 echo "Install arch dependencies"
-pgrep -x pacman > /dev/null && sudo pacman -Sy llvm-libs mesa rust alacritty bspwm sxhkd polybar
+pgrep -x pacman > /dev/null && sudo pacman -Sy llvm-libs mesa rust alacritty bspwm sxhkd polybar feh
