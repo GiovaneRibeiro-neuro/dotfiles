@@ -3,33 +3,17 @@ My dotfiles and scripts to make my life easier. Works on MacOSX and Linux. Stron
 
 ## How can I use it?
 
-Just run this line (For now, only valid for Arch Linux):
+Just run this line in your home folder:
 
 ```
-$ curl -o- https://raw.githubusercontent.com/giovanebribeiro/dotfiles/v1.0.0/cfg-install | /bin/bash
+$ curl -o- https://raw.githubusercontent.com/giovanebribeiro/dotfiles/master/cfg-install | /bin/bash
 ```
 
-```
-$ ./dot -h
-Usage: ./dot [options] <action> <module>
+## Pre-requisites
 
-   <action> means: What do you want to do? (install or uninstall)
-   <module> means: The folder to be installed/uninstalled
+* zsh
 
-   Options:
-   h      Print this help
-   v      Enable verbose
-```
+## Available configurations
 
-## Available modules (install and configurations)
-
-* git
-* markdown
-* polybar (dependency: papirus icon theme)
-* rofi
-* vim
-* ctags
-* node
-* rust
-* tmux
-
+* [alacritty](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/alacritty/alacritty.toml)
+* [polybar](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/polybar/config.ini)
