@@ -9,9 +9,26 @@ Just run this line in your home folder:
 $ curl -o- https://raw.githubusercontent.com/giovanebribeiro/dotfiles/master/cfg-install | /bin/bash
 ```
 
+After the installation, reboot (or open a new terminal to load the correct .zshrc) and if you are on arch, run the setup script:
+
+```
+$ setup-arch.sh
+```
+
+If something changes, to save them on this repo, just type:
+```bash
+# if is a new file
+$ dot add $HOME/path/to/file
+# commit changes
+$ dot commit -am "lorem ipsum"
+# push to repo
+$ dot push
+```
+
 ## Pre-requisites
 
-* zsh
+* zsh (must be your shell)
+* rust (more specifically, cargo)
 
 ## Available configurations
 

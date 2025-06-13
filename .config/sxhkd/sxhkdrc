@@ -39,7 +39,7 @@ super + shift + r
 	bspc wm -r
 
 # close and kill
-super + {_,shift + }w
+super + {x,shift + }x
 	bspc node -{c,k}
 
 ## send the newest marked node to the newest preselected node
