@@ -55,18 +55,12 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " General programming
 "
 
-" Source code browser (uses ctags)
-Plugin 'taglist.vim'
 " A solid language pack
 Plugin 'sheerun/vim-polyglot'
 " Code Completion engine
 Plugin 'ajh17/VimCompletesMe'
-" Generates JS-Doc
-Plugin 'heavenshell/vim-jsdoc'
 " Syntax checker
 Plugin 'vim-syntastic/syntastic'
-" Provides support to emmet (http://emmet.io)
-Plugin 'mattn/emmet-vim'
 
 " 
 " Appearance
@@ -83,25 +77,14 @@ Plugin 'shinchu/lightline-gruvbox.vim'
 " Utils
 "
 
-" Allow to manipulate todo.txt files in vim
-"Plugin 'vim-scripts/todo-txt.vim'                                   
-" Gist integration (https://gist.github.com)
-"Plugin 'lambdalisue/vim-gista'                                      
 " lorem ipsum dolor sit amet....
 Plugin 'vim-scripts/loremipsum'                                     
-" A calendar?? Inside VIM??? WTF? o_O
-Plugin 'itchyny/calendar.vim'
 " Some nice startup page
 Plugin 'mhinz/vim-startify'
-" CSV file support
-Plugin 'chrisbra/csv.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 " End of plugin list
-
-" my plugins
-let lines = readfile($HOME . "/.dotfiles-loc")
 
 "" 
 " Functions
@@ -158,18 +141,11 @@ set hlsearch
 set ignorecase
 set smartcase
 
-" enable taglist
-let Tlist_Use_Right_Window = 1
 set t_ut=      " cleaning this var to fix vim background inside tmux (https://superuser.com/a/562423)
 let vim_markdown_preview_toggle=2 " specific for vim-markdown-preview: enable preview on buffer write (:w)
 
 " textwidth
 set textwidth=200
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%101v', 101)
-
-" wiki
-let g:vimwiki_list = [{'path': '~/penseira/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " vim sessions
 let g:sessions_dir = '$HOME/.vim/sessions'
@@ -193,15 +169,6 @@ endtry
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
-" Todo.txt
-au filetype todo imap <buffer> + +<C-X><C-O>
-au filetype todo imap <buffer> @ @<C-X><C-O>
-
-" JsDoc plugin
-let g:jsdoc_enable_es6=1
-let g:jsdoc_allow_input_prompt=1
-let g:jsdoc_input_description=1
 
 ""
 " Look and Feel
@@ -253,24 +220,19 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " shortcuts using the leader key
-let mapleader=","                                                                                          " behold the new <Leader> key
-nmap <Leader>r  :source %<CR>                                                                              " reload the current file
-nmap <Leader>c  :tabe ~/.vimrc<CR>                                                                         " Open the config file
-nmap <Leader>gn <Plug>GitGutterNextHunk                                                                    " git next
-nmap <Leader>gp <Plug>GitGutterPrevHunk                                                                    " git previous
-nmap <Leader>ga <Plug>GitGutterStageHunk                                                                   " git add (chunk)
-nmap <Leader>gu <Plug>GitGutterUndoHunk                                                                    " git undo (chunk)
-nmap <Leader>gs :Magit<CR>      	                                                                         " git status
-nmap <Leader>gb :Gblame<CR>                                                                                " git blame
-nmap <Leader>gc :Gcommit %<CR>                                                                             " git commit the current file
-nmap <Leader>t  :TlistToggle<CR>                                                                           " show taglist pane
-nmap <Leader>e  :Vexplore<CR>                                                                              " show file explorer
-nmap <Leader>i  gg=G                                                                                       " fix file indentation
-nmap <Leader>a  ggVG                                                                                       " Select all
-"nmap <Leader>todo :Gista open --no-cache 9bb03999f58319d086ea58b0943f2104 todo.txt<CR>                     " open todo file
-"nmap <Leader>done :Gista open --opener='split' --no-cache 9bb03999f58319d086ea58b0943f2104 done.txt<CR>    " open todo file
-nmap <Leader>jsd  :JsDoc<CR>                                                                               " Add jsdoc to function (put cursor on function declaration)
-nmap <Leader>cal  :Calendar -view=year -split=vertical -width=27<CR>
+let mapleader=","                               " behold the new <Leader> key
+nmap <Leader>r  :source %<CR>                   " reload the current file
+nmap <Leader>c  :tabe ~/.vimrc<CR>              " Open the config file
+nmap <Leader>gn <Plug>GitGutterNextHunk         " git next
+nmap <Leader>gp <Plug>GitGutterPrevHunk         " git previous
+nmap <Leader>ga <Plug>GitGutterStageHunk        " git add (chunk)
+nmap <Leader>gu <Plug>GitGutterUndoHunk         " git undo (chunk)
+nmap <Leader>gs :Magit<CR>      	        " git status
+nmap <Leader>gb :Gblame<CR>                     " git blame
+nmap <Leader>gc :Gcommit %<CR>                  " git commit the current file
+nmap <Leader>e  :Vexplore<CR>                   " show file explorer
+nmap <Leader>i  gg=G                            " fix file indentation
+nmap <Leader>a  ggVG                            " Select all
 
 " Clipboard (requires +clipboard flag available (source: https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim))
 " If you running on WSL, this link will be useful: https://superuser.com/questions/1291425/windows-subsystem-linux-make-vim-use-the-clipboard

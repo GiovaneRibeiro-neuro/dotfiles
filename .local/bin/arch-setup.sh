@@ -12,4 +12,12 @@ echo "Install arch dependencies"
 # * unzip: unzip .zip packages  
 # * arandr: GUI for xrandr
 # * blueman: GUI + applet for bluetooth service 
-pgrep -x pacman > /dev/null && sudo pacman -Sy llvm-libs mesa rust alacritty bspwm sxhkd polybar feh autorandr xorg-xrandr unzip arandr blueman
+# * gvim : VIm with clipboard enabled
+# * meld: winmerge-like tool 
+pgrep -x pacman > /dev/null && sudo pacman -Sy llvm-libs mesa rust alacritty bspwm sxhkd polybar feh autorandr xorg-xrandr unzip arandr blueman gvim meld
+
+echo "Install Vundle (vim plugin) and install vim plugins"
+[ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions
+[ ! -d $HOME/.vim/bundle ] && mkdir -p $HOME/.vim/bundle
+git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim/
+vim +PluginInstall +qall
