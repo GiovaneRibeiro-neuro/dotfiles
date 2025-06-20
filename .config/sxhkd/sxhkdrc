@@ -14,9 +14,13 @@ super + Escape
 super + l
 	slock
 
-# Browser
+# browser
 super + w
 	google-chrome-stable
+
+# code
+super + c
+    code
 
 ## program launcher
 #super + @space

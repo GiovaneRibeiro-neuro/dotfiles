@@ -1,23 +1,29 @@
 #!/bin/bash
 
 echo "Install arch dependencies"
-# * llvm-utils: OpenCL libraries
-# * mesa: Video driver
-# * alacritty: Terminal 
-# * bspwm/sxhkd: A window manager / keybindings
-# * polybar: A top bar
-# * feh: Handle wallpapers
-# * autorandr: Save multiple monitors configurations
-# * xorg-xrandr: makes possible multiple monitors
-# * unzip: unzip .zip packages  
-# * arandr: GUI for xrandr
-# * blueman: GUI + applet for bluetooth service 
-# * gvim : VIm with clipboard enabled
-# * meld: winmerge-like tool 
-# * powerline: better fonts and emojis
-# * tmux: terminal sessions
-# * ttf-font-awesome: font awesome
-pgrep -x pacman > /dev/null && sudo pacman -Sy llvm-libs mesa rust alacritty bspwm sxhkd polybar feh autorandr xorg-xrandr unzip arandr blueman gvim meld powerline tmux ttf-font-awesome
+pgrep -x pacman > /dev/null && sudo pacman -Sy \
+    llvm-libs \                         # * llvm-utils: OpenCL libraries
+    mesa \                              # * mesa: Video driver
+    alacritty \                         # * alacritty: Terminal
+    bspwm sxhkd \                       # * bspwm/sxhkd: A window manager / keybindings
+    polybar \                           # * polybar: A top bar
+    feh \                               # * feh: Handle wallpapers
+    autorandr \                         # * autorandr: Save multiple monitors configurations
+    xorg-xrandr \                       # * xorg-xrandr: makes possible multiple monitors
+    unzip \                             # * unzip: unzip .zip packages
+    arandr \                            # * arandr: GUI for xrandr
+    blueman \                           # * blueman: GUI + applet for bluetooth service
+    gvim \                              # * gvim : VIm with clipboard enabled
+    meld \                              # * meld: winmerge-like tool
+    powerline \                         # * powerline: better fonts and emojis
+    tmux \                              # * tmux: terminal sessions
+    ttf-font-awesome \                  # * ttf-font-awesome: font awesome
+    xclip \                             # * xclip: clipboard tool
+    qt5-base qt5-declarative qt5-tools  # * dbus dependencies
+
+echo "Install AUR packages"
+[ ! -d $HOME/.aur ] && mkdir -p $HOME/.aur
+AUR_PACKAGES=()
 
 echo "Install Vundle (vim plugin) and install vim plugins"
 [ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions
