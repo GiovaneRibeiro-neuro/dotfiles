@@ -16,7 +16,8 @@ echo "Install arch dependencies"
 # * meld: winmerge-like tool 
 # * powerline: better fonts and emojis
 # * tmux: terminal sessions
-pgrep -x pacman > /dev/null && sudo pacman -Sy llvm-libs mesa rust alacritty bspwm sxhkd polybar feh autorandr xorg-xrandr unzip arandr blueman gvim meld powerline tmux
+# * ttf-font-awesome: font awesome
+pgrep -x pacman > /dev/null && sudo pacman -Sy llvm-libs mesa rust alacritty bspwm sxhkd polybar feh autorandr xorg-xrandr unzip arandr blueman gvim meld powerline tmux ttf-font-awesome
 
 echo "Install Vundle (vim plugin) and install vim plugins"
 [ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions

@@ -1,10 +1,15 @@
 #! /bin/sh
 
 ## AUTOSTART ## 
+# Gerenciador de atalhos 
 sxhkd &
+# Suporte a GTK
+#lxsession &
+# Compositor
 picom &
-blueman-applet &
+# Barra superior
 polybar-bspwm &
+# Restaura wallpaper
 feh --randomize --bg-fill $HOME/.cache/wall/* &
 
 for monitor in $(bspc query -M)

@@ -12,17 +12,17 @@ $ curl -o- https://raw.githubusercontent.com/giovanebribeiro/dotfiles/master/cfg
 After the installation, reboot (or open a new terminal to load the correct .zshrc) and if you are on arch, run the setup script:
 
 ```
-$ setup-arch.sh
+$ arch-setup.sh
 ```
 
 If something changes, to save them on this repo, just type:
 ```bash
 # if is a new file
-$ dot add $HOME/path/to/file
+$ cfg add $HOME/path/to/file
 # commit changes
-$ dot commit -am "lorem ipsum"
+$ cfg commit -am "lorem ipsum"
 # push to repo
-$ dot push
+$ cfg push
 ```
 
 ## Pre-requisites
