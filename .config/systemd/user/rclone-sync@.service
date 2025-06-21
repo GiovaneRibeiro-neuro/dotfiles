@@ -1,0 +1,6 @@
+[Unit]
+Description=Rclone bisync com perfil %i
+
+[Service]
+Type=oneshot
+ExecStart=/home/gioz/.local/bin/rclone-sync.sh %i
