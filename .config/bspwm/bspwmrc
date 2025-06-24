@@ -11,8 +11,6 @@ picom &
 polybar-bspwm &
 # Restaura wallpaper
 feh --randomize --bg-fill $HOME/.cache/wall/* &
-# Dropbox
-dropbox &
 
 for monitor in $(bspc query -M)
 do

@@ -24,16 +24,17 @@ pgrep -x pacman > /dev/null && sudo pacman -Sy \
     kwallet \                               # * Manage passwords
     ksshaskpass \                           # * credential helper for kwallet
     docker docker-buildx docker-compose \   # * container engine
-    python-gpgme \                          # * needed for dropbox
     rclone \                                # * cloud sync
+    vifm \                                  # * a vim-like file manager
+    kleopatra \                             # * a gpg key manager
     # 
 
 # import dropbox key
-gpg --recv-keys FC918B335044912E
+#gpg --recv-keys FC918B335044912E
 
 echo "Install AUR packages"
 [ ! -d $HOME/.aur ] && mkdir -p $HOME/.aur
-AUR_PACKAGES=(dropbox google-chrome informant iwgtk visual-studio-code-bin)
+AUR_PACKAGES=(google-chrome informant iwgtk visual-studio-code-bin)
 
 echo "Install Vundle (vim plugin) and install vim plugins"
 [ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions
@@ -46,8 +47,10 @@ echo "Install oh-my-tmux"
 git clone https://github.com/gpakosz/.tmux $HOME/.config/tmux/
 ln -sf $HOME/.config/tmux/.tmux.conf $HOME/.tmux.conf
 
-echo "Some extra configs"
+echo "Enable docker"
 sudo systemctl enable docker.service
 YOUR_USER=$USER
 sudo usermod -aG docker $YOUR_USER
 
+echo "Restore rclone backup (have to import correct GPG key)"
+gpg -o $HOME/.config/rclone/rclone.conf -d $HOME/.config/rclone/rclone.conf.bkp

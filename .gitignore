@@ -11,3 +11,4 @@ workspace/
 .gnupg
 .dropbox/
 Dropbox
+.config/rclone/rclone.conf

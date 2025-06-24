@@ -22,6 +22,9 @@ super + w
 super + c
     code
 
+super + e
+    alacritty -e vifm
+
 ## program launcher
 #super + @space
 #	dmenu_run
@@ -104,10 +107,10 @@ super + {Left,Right}
 ## preselect
 ##
 #
-## preselect the direction
-#super + ctrl + {h,j,k,l}
-#	bspc node -p {west,south,north,east}
-#
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
 ## preselect the ratio
 #super + ctrl + {1-9}
 #	bspc node -o 0.{1-9}
@@ -123,11 +126,11 @@ super + {Left,Right}
 ##
 ## move/resize
 ##
-#
-## expand a window by moving one of its side outward
-#super + alt + {h,j,k,l}
-#	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
 ## contract a window by moving one of its side inward
 #super + alt + shift + {h,j,k,l}
 #	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
