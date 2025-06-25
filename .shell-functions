@@ -1,0 +1,75 @@
+# fetch (using treefetch, and change it to a christmas tree when time comes)
+fetch() {
+
+    if [ "$OS" = "Darwin" ]; then
+
+        if [ ! -f "$BIN_FOLDER/pfetch"  ]; then
+            BASEDIR=`pwd`
+            cd /tmp
+
+            wget https://github.com/dylanaraps/pfetch/archive/master.zip
+            unzip master.zip
+            install pfetch-master/pfetch $BIN_FOLDER/
+            ls -l $BIN_FOLDER/pfetch
+
+            cd $BASEDIR
+        fi
+
+        pfetch
+        exit 0
+    fi
+
+    if ! which treefetch &>/dev/null; then
+        cargo install -f --git https://github.com/angelofallars/treefetch treefetch
+    fi
+
+    advent.sh # run the script to check if we are in advent
+    advent_file=/tmp/advento.txt
+
+    if [ ! -f $advent_file ]; then
+        treefetch --bonsai
+    else
+        treefetch --xmas
+    fi
+
+}
+
+# test later
+#changeMac(){
+#  local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+#  sudo ifconfig en0 ether $mac
+#  sudo ifconfig en0 down
+#  sudo ifconfig en0 up
+#  echo "Your new physical address is $mac"
+#
+#  #unlimited wi-fi?
+#}
+
+aws-login() {
+
+    if ! which aws &>/dev/null; then
+	    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip"
+	    cd /tmp
+	    unzip awscliv2.zip
+	    sudo ./aws/install
+	    cd $HOME
+    fi
+    
+    SSO_SESSION_NAME=""
+    [ -z $AWS_SSO_SESSION_NAME ] && SSO_SESSION_NAME="--sso-session $AWS_SSO_SESSION_NAME"
+
+    PROFILE=default
+    [ -n "$1" ] && PROFILE=$1
+
+    if command -v aws >/dev/null 2>&1
+    then
+        aws sts get-caller-identity &> /dev/null
+        EXIT_CODE="$?"
+        if [ $EXIT_CODE != 0 ]; then
+            aws sso login $SSO_SESSION_NAME
+        fi
+
+        aws configure export-credentials --profile $PROFILE --format env-no-export
+    fi
+
+}

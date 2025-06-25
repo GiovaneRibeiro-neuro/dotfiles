@@ -1,0 +1,36 @@
+# bottom - a better top
+if [ ! -f $HOME/.cargo/bin/btm ]; then
+    cargo install -f --git https://github.com/ClementTsang/bottom bottom
+fi
+test alias oldtop >/dev/null 2>&1 || alias oldtop='/usr/bin/top'
+test alias top >/dev/null 2>&1 || alias top='btm --theme gruvbox'
+
+# Use lf to switch directories and bind it to ctrl-o
+# Source: https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
+lfcd () {
+    
+    if [ ! -f "$BIN_FOLDER/lf" ]; then
+        BASEDIR=`pwd`
+        cd $BIN_FOLDER
+
+        file=lf-linux-amd64.tar.gz
+        if [ "$OS" = "Darwin" ]; then
+            file=lf-darwin-amd64.tar.gz
+        fi 
+
+        wget https://github.com/gokcehan/lf/releases/download/r14/$file
+        tar -zxvf $file
+        rm $file
+        mkdir -p ~/.config/lf
+        curl https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfrc.example -o ~/.config/lf/lfrc
+        cd $BASEDIR
+    fi
+
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}

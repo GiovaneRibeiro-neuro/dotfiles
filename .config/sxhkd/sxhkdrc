@@ -22,8 +22,13 @@ super + w
 super + c
     code
 
+# vim file manager
 super + e
     alacritty -e vifm
+
+# obsidian (my wiki)
+super + k
+    obsidian
 
 ## program launcher
 #super + @space

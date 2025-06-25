@@ -29,6 +29,7 @@ $ cfg push
 
 * zsh (must be your shell)
 * rust (more specifically, cargo)
+* nvm (and the most recent Node.JS)
 
 ## Available configurations
 

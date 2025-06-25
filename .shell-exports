@@ -1,0 +1,6 @@
+
+# General exports
+export NODE_ENV="development"
+export PATH="$HOME/.cargo/bin:$BIN_FOLDER:$PATH"
+export EDITOR=vim
+export TMPDIR=/tmp
