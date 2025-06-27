@@ -1,0 +1,81 @@
+## 
+# ALIASES
+##
+
+test alias cfg > /dev/null 2>&1 || alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+test alias up > /dev/null 2>&1 || alias up='arch-update.sh'
+test alias tmux > /dev/null 2>&1 || alias tmux='tmux -u2'
+test alias clima > /dev/null 2>&1 || alias clima='curl v2.wttr.in'
+test alias bye > /dev/null 2>&1 || alias bye='sudo shutdown -h now'
+
+# Permite a extração do Dockerfile de uma determinada imagem
+# exemplo de uso: dfimage -sV=1.36 nginx:latest
+test alias dfimage > /dev/null 2>&1 || alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm alpine/dfimage -sV=1.36"
+test alias wiki >/dev/null 2>&1 || alias wiki='cd $HOME/workspace/wiki && git pull && obsidian && git commit -am "wiki updates (notebook)" && git push'
+
+##
+# FUNCTIONS/APPS
+##
+
+# bottom - a better top
+if command -v cargo >/dev/null 2>&1 > /dev/null; then
+    if [ ! -f $HOME/.cargo/bin/btm ]; then
+        cargo install -f --git https://github.com/ClementTsang/bottom bottom
+    fi
+    test alias oldtop >/dev/null 2>&1 || alias oldtop='/usr/bin/top'
+    test alias top >/dev/null 2>&1 || alias top='btm --theme gruvbox'
+fi
+
+# Use lf to switch directories and bind it to ctrl-o
+# Source: https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
+lfcd () {
+    
+    if [ ! -f "$BIN_FOLDER/lf" ]; then
+        BASEDIR=`pwd`
+        cd $BIN_FOLDER
+
+        file=lf-linux-amd64.tar.gz
+        if [ "$OS" = "Darwin" ]; then
+            file=lf-darwin-amd64.tar.gz
+        fi 
+
+        wget https://github.com/gokcehan/lf/releases/download/r14/$file
+        tar -zxvf $file
+        rm $file
+        mkdir -p ~/.config/lf
+        curl https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfrc.example -o ~/.config/lf/lfrc
+        cd $BASEDIR
+    fi
+
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+if command -v zsh >/dev/null; then
+    bindkey -s '^o' 'lfcd\n'
+    autoload -Uz tetriscurses
+    test alias tetris > /dev/null 2>&1 || alias tetris='tetriscurses'
+fi
+
+# General exports
+export NODE_ENV="development"
+export PATH="$HOME/.cargo/bin:$PATH"
+export EDITOR=vim
+export TMPDIR=/tmp
+
+flag_file="/tmp/flag_file"
+if [ ! -f $flag_file ]
+then
+  command -v fetch >/dev/null 2>&1 && { fetch; echo ; touch $flag_file ; }
+  # only works if informant is installed (installed via AUR)
+  command -v informant > /dev/null 2>&1 && { informant list --unread --file $HOME/.cache/informant.dat; echo; }
+fi
+
+#
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

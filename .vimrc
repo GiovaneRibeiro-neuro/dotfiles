@@ -193,7 +193,7 @@ let g:lightline.active = {}
 let g:lightline.active.left = [ [ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
 let g:lightline.component_function = {}
 let g:lightline.component_function.gitbranch = 'gitbranch#name'
-
+set guifont=JetBrainsMonoNerdFont:h12
 " netrw (vim native file explorer)
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4

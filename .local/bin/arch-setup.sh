@@ -2,30 +2,29 @@
 
 echo "Install arch dependencies"
 pgrep -x pacman > /dev/null && sudo pacman -Sy \
-    llvm-libs \                             # * llvm-utils: OpenCL libraries
-    mesa \                                  # * mesa: Video driver
-    alacritty \                             # * alacritty: Terminal
-    bspwm sxhkd \                           # * bspwm/sxhkd: A window manager / keybindings
-    polybar \                               # * polybar: A top bar
-    feh \                                   # * feh: Handle wallpapers
-    autorandr \                             # * autorandr: Save multiple monitors configurations
-    xorg-xrandr \                           # * xorg-xrandr: makes possible multiple monitors
-    unzip \                                 # * unzip: unzip .zip packages
-    arandr \                                # * arandr: GUI for xrandr
-    blueman \                               # * blueman: GUI + applet for bluetooth service
-    gvim \                                  # * gvim : VIm with clipboard enabled
-    meld \                                  # * meld: winmerge-like tool
-    powerline \                             # * powerline: better fonts and emojis
-    tmux \                                  # * tmux: terminal sessions
-    ttf-font-awesome \                      # * ttf-font-awesome: font awesome
-    xclip \                                 # * xclip: clipboard tool
-    qt5-base qt5-declarative qt5-tools \    # * dbus dependencies
-    gnupg \                                 # * encription keys
-    gnome-keyring libsecret seahorse \      # * Manage passwords
-    docker docker-buildx docker-compose \   # * container engine
-    rclone \                                # * cloud sync
-    vifm \                                  # * a vim-like file manager
-    kleopatra \                             # * a gpg key manager
+    llvm-libs \                                                             # * llvm-utils: OpenCL libraries
+    mesa \                                                                  # * mesa: Video driver
+    alacritty \                                                             # * alacritty: Terminal
+    bspwm sxhkd \                                                           # * bspwm/sxhkd: A window manager / keybindings
+    polybar \                                                               # * polybar: A top bar
+    feh \                                                                   # * feh: Handle wallpapers
+    autorandr \                                                             # * autorandr: Save multiple monitors configurations
+    xorg-xrandr \                                                           # * xorg-xrandr: makes possible multiple monitors
+    unzip \                                                                 # * unzip: unzip .zip packages
+    arandr \                                                                # * arandr: GUI for xrandr
+    blueman \                                                               # * blueman: GUI + applet for bluetooth service
+    gvim \                                                                  # * gvim : VIm with clipboard enabled
+    meld \                                                                  # * meld: winmerge-like tool
+    powerline \                                                             # * powerline: better fonts and emojis
+    tmux \                                                                  # * tmux: terminal sessions
+    xclip \                                                                 # * xclip: clipboard tool
+    qt5-base qt5-declarative qt5-tools \                                    # * dbus dependencies
+    gnupg \                                                                 # * encription keys
+    gnome-keyring libsecret seahorse \                                      # * Manage passwords
+    docker docker-buildx docker-compose \                                   # * container engine
+    rclone \                                                                # * cloud sync
+    vifm \                                                                  # * a vim-like file manager
+    kleopatra \                                                             # * a gpg key manager
     # 
 
 # import dropbox key
@@ -62,8 +61,6 @@ systemctl --user daemon-reexec
 systemctl --user enable --now rclone-sync@songbook.timer
 systemctl --user start --now rclone-sync@songbook.timer
 systemctl --user restart gnome-keyring-daemon.service
-
-
 
 echo "Install devcontainer cli"
 npm -g @devcontainers/cli

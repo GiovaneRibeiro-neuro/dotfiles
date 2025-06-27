@@ -1,5 +1,18 @@
 # dotfiles
-My dotfiles and scripts to make my life easier. Works on MacOSX and Linux. Strongly inspired on [this](https://github.com/davidsonfellipe/dotfiles) project (Thanks Davidson!! :D) and [this](https://www.atlassian.com/git/tutorials/dotfiles) link.
+My dotfiles and scripts to make my life easier. Works on zsh or bash. Strongly inspired on [this](https://github.com/davidsonfellipe/dotfiles) project (Thanks Davidson!! :D) and [this](https://www.atlassian.com/git/tutorials/dotfiles) link.
+
+## Pre-requisites
+
+* rust (more specifically, cargo)
+* nvm (and the most recent Node.JS)
+* nerd-fonts (More specifically, ttf-font-awesome; ttf-jetbrains-mono-nerd; ttf-nerd-fonts-symbols)
+
+## Available configurations
+
+* [alacritty](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/alacritty/alacritty.toml)
+* [polybar](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/polybar/config.ini)
+* [picom](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/picom/config.ini)
+* [bspwm](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/bspwm/bspwmrc)/[sxhkd](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/sxhkd/sxhkdrc)
 
 ## How can I use it?
 
@@ -25,15 +38,4 @@ $ cfg commit -am "lorem ipsum"
 $ cfg push
 ```
 
-## Pre-requisites
 
-* zsh (must be your shell)
-* rust (more specifically, cargo)
-* nvm (and the most recent Node.JS)
-
-## Available configurations
-
-* [alacritty](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/alacritty/alacritty.toml)
-* [polybar](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/polybar/config.ini)
-* [picom](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/picom/config.ini)
-* [bspwm](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/bspwm/bspwmrc)/[sxhkd](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/sxhkd/sxhkdrc)

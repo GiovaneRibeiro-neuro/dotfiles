@@ -17,3 +17,8 @@ else
 fi;
 config checkout
 config config status.showUntrackedFiles no
+
+echo "Install general dotfiles (zshrc/bashrc and some general stuff)"
+git clone https://github.com/giovanebribeiro/devcontainers-dotfiles.git ~/devcontainers-dotfiles
+cd ~/devcontainers-dotfiles
+./install.sh

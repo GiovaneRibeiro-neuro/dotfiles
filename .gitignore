@@ -12,3 +12,5 @@ workspace/
 .dropbox/
 Dropbox
 .config/rclone/rclone.conf
+devcontainers-dotfiles/
+.config/starship.toml
