@@ -27,8 +27,12 @@ pgrep -x pacman > /dev/null && sudo pacman -Sy \
     kleopatra \                                                             # * a gpg key manager
     # 
 
-# import dropbox key
-#gpg --recv-keys FC918B335044912E
+#
+# OBS 
+#
+# 1) ao instalar o gnome-keyring, editar o serviço para adicionar os parametros ssh e gpg ao daemon. O arquivo a ser editado é: /usr/lib/systemd/user/gnome-keyring-daemon.service. Após isso, reiniciar
+# o systemd e reiniciar o serviço ($ systemctl start --user gnome-keyring-daemon)
+# 
 
 echo "Install AUR packages"
 [ ! -d $HOME/.aur ] && mkdir -p $HOME/.aur

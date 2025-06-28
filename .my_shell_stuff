@@ -97,6 +97,47 @@ fetch() {
 
 }
 
+
+gpg-enc() {
+  local input_file="$1"
+  local output_file="$2"
+  local recipient
+
+  if [[ -z "$input_file" || ! -f "$input_file" ]]; then
+    echo "Uso: encrypt_file <arquivo> [arquivo_saida]"
+    return 1
+  fi
+
+  output_file="${output_file:-${input_file}.gpg}"
+
+  echo "Selecionando chave GPG..."
+  gpg --list-keys --with-colons | awk -F: '/^uid:/ { print NR-1 ") " $10 }'
+  read -p "Escolha o número da chave (acima): " idx
+  recipient=$(gpg --list-keys --with-colons | awk -F: '/^uid:/ { print $10 }' | sed -n "$((idx+1))p")
+
+  if [[ -z "$recipient" ]]; then
+    echo "Chave inválida."
+    return 1
+  fi
+
+  gpg -e -r "$recipient" -o "$output_file" "$input_file" && echo "✔ Encriptado com sucesso: $output_file"
+}
+
+
+gpg-dec() {
+  local input_file="$1"
+  local output_file="$2"
+
+  if [[ -z "$input_file" || ! -f "$input_file" ]]; then
+    echo "Uso: decrypt_file <arquivo.gpg> [arquivo_saida]"
+    return 1
+  fi
+
+  output_file="${output_file:-${input_file%.gpg}}"
+
+  gpg -d -o "$output_file" "$input_file" && echo "✔ Desencriptado com sucesso: $output_file"
+}
+
 # test later
 #changeMac(){
 #  local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
