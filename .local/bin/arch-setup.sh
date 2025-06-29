@@ -25,6 +25,7 @@ pgrep -x pacman > /dev/null && sudo pacman -Sy \
     rclone \                                                                # * cloud sync
     vifm \                                                                  # * a vim-like file manager
     cronie \                                                                # * cron
+    wget \
     # 
 
 #
