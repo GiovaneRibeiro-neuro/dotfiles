@@ -24,7 +24,7 @@ pgrep -x pacman > /dev/null && sudo pacman -Sy \
     docker docker-buildx docker-compose \                                   # * container engine
     rclone \                                                                # * cloud sync
     vifm \                                                                  # * a vim-like file manager
-    kleopatra \                                                             # * a gpg key manager
+    cronie \                                                                # * cron
     # 
 
 #
@@ -62,9 +62,11 @@ echo "Load systemctl scripts"
 # ssh and gpg components in ExecStart line:
 systemctl --user status gnome-keyring-daemon.service
 systemctl --user daemon-reexec
-systemctl --user enable --now rclone-sync@songbook.timer
-systemctl --user start --now rclone-sync@songbook.timer
+#systemctl --user enable --now rclone-sync@songbook.timer
+#systemctl --user start --now rclone-sync@songbook.timer
 systemctl --user restart gnome-keyring-daemon.service
+sudo systemctl start cronie
+sudo systemctl enable cronie
 
 echo "Install devcontainer cli"
 npm -g @devcontainers/cli

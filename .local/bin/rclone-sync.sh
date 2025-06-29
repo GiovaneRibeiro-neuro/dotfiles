@@ -18,6 +18,7 @@ fi
 
 PROFILE=$1
 CONF=$HOME/.config/rclone-sync/$PROFILE.conf
+CONF_RESYNC_FLAG=$HOME/.config/rclone-sync/$PROFILE.conf.resync
 
 if [ ! -f "$CONF" ]; then
     echo "Profile conf '$CONF' not found."
@@ -35,12 +36,18 @@ echo "===== $(date) - Início da sincronização =====" >> "$LOGFILE"
 # Garante que a pasta local existe
 [ ! -d $LOCAL_DIR ] && mkdir -p "$LOCAL_DIR"
 
-# Sincronização local → remoto
-echo "🔼 Enviando arquivos locais para o OneDrive..." >> "$LOGFILE"
-rclone copy "$LOCAL_DIR" "$REMOTE_NAME:$REMOTE_DIR" --update --create-empty-src-dirs --log-file="$LOGFILE" --log-level=INFO
-
-# Sincronização remoto → local
-echo "🔽 Baixando arquivos do OneDrive para local..." >> "$LOGFILE"
-rclone copy "$REMOTE_NAME:$REMOTE_DIR" "$LOCAL_DIR" --update --create-empty-src-dirs --log-file="$LOGFILE" --log-level=INFO
+if [ -f $CONF_RESYNC_FLAG ]; then
+    # arquivo já existe, seria uma sincronização comum
+    rclone bisync "$LOCAL_DIR" "$REMOTE_NAME:$REMOTE_DIR" \
+      --log-file="$LOGFILE" \
+      --log-level=INFO
+else
+    # arquivo não existe. Faz a sincronização com --resync, e depois cria um arquivo de flag
+    rclone bisync "$LOCAL_DIR"  "$REMOTE_NAME:$REMOTE_DIR" \
+      --log-file="$LOGFILE" \
+      --log-level=INFO \
+      --resync
+    echo "syncOK" > $CONF_RESYNC_FLAG
+fi
 
 echo "✅ Sincronização finalizada em $(date)" >> "$LOGFILE"

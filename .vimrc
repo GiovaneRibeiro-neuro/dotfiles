@@ -58,7 +58,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " A solid language pack
 Plugin 'sheerun/vim-polyglot'
 " Code Completion engine
-Plugin 'ajh17/VimCompletesMe'
+Plugin 'vim-scripts/VimCompletesMe'
 " Syntax checker
 Plugin 'vim-syntastic/syntastic'
 
@@ -81,6 +81,8 @@ Plugin 'shinchu/lightline-gruvbox.vim'
 Plugin 'vim-scripts/loremipsum'                                     
 " Some nice startup page
 Plugin 'mhinz/vim-startify'
+" Chordpro support
+Plugin 'vim-scripts/chordpro.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
