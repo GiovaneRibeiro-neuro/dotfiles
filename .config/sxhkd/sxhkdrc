@@ -24,7 +24,8 @@ super + c
 
 # vim file manager
 super + e
-    alacritty -e vifm
+#    alacritty -e vifm
+    nautilus
 
 # obsidian (my wiki)
 super + k
