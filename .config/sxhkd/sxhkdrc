@@ -79,7 +79,7 @@ super + q
 ## focus/swap
 ##
 #
-## focus the node in the given direction
+# focus the node in the given direction
 #super + {_,shift + }{h,j,k,l}
 #	bspc node -{f,s} {west,south,north,east}
 #
@@ -87,10 +87,10 @@ super + q
 #super + {p,b,comma,period}
 #	bspc node -f @{parent,brother,first,second}
 #
-## focus the next/previous window in the current desktop
-#super + {_,shift + }c
-#	bspc node -f {next,prev}.local.!hidden.window
-#
+# focus the next/previous window in the current desktop
+super + shift + {Left,Right}
+	bspc node -f {next,prev}.local.!hidden.window
+
 # focus the next/previous desktop in the current monitor
 super + {Left,Right}
 	bspc desktop -f {prev,next}.local
