@@ -35,6 +35,15 @@ super + k
 #super + @space
 #	dmenu_run
 
+# Gridcoin client
+super + alt + g
+    gridcoinresearch
+
+# Boinc cli
+super + alt + b
+    boincmgr
+    
+
 #
 # bspwm hotkeys
 #
