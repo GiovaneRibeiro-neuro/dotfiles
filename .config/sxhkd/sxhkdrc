@@ -43,6 +43,8 @@ super + alt + g
 super + alt + b
     boincmgr
     
+super + alt + v
+    VirtualBox
 
 #
 # bspwm hotkeys

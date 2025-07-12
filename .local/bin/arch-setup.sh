@@ -26,6 +26,7 @@ pgrep -x pacman > /dev/null && sudo pacman -Sy \
     vifm \                                                                  # * a vim-like file manager
     cronie \                                                                # * cron
     wget \
+    boinc \                                                                 # * Help scientific processing
     # 
 
 #
@@ -37,7 +38,7 @@ pgrep -x pacman > /dev/null && sudo pacman -Sy \
 
 echo "Install AUR packages"
 [ ! -d $HOME/.aur ] && mkdir -p $HOME/.aur
-AUR_PACKAGES=(google-chrome informant iwgtk visual-studio-code-bin)
+AUR_PACKAGES=(google-chrome informant iwgtk visual-studio-code-bin gridcoinresearch)
 
 echo "Install Vundle (vim plugin) and install vim plugins"
 [ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions
