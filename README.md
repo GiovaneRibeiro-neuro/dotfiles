@@ -6,6 +6,7 @@ My dotfiles and scripts to make my life easier. Works on zsh or bash. Strongly i
 * rust (more specifically, cargo)
 * nvm (and the most recent Node.JS)
 * nerd-fonts (More specifically, ttf-font-awesome; ttf-jetbrains-mono-nerd; ttf-nerd-fonts-symbols)
+* libc e outras bibliotecas de compilação (build-essential in ubuntu ou base-devel in arch)
 
 ## Available configurations
 
@@ -19,7 +20,7 @@ My dotfiles and scripts to make my life easier. Works on zsh or bash. Strongly i
 Just run this line in your home folder:
 
 ```
-$ curl -o- https://raw.githubusercontent.com/giovanebribeiro/dotfiles/master/cfg-install | /bin/bash
+curl -o- https://raw.githubusercontent.com/giovanebribeiro/dotfiles/master/cfg-install | /bin/bash
 ```
 
 After the installation, reboot (or open a new terminal to load the correct .zshrc) and if you are on arch, run the setup script:
