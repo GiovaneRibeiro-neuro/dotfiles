@@ -10,6 +10,10 @@ super + Return
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# A hotkey to display all hotkeys...
+super + comma
+    sxhkhmenu
+
 # lock screen. To unlock, just type your password
 super + l
 	slock
@@ -32,8 +36,8 @@ super + k
     obsidian
 
 ## program launcher
-#super + @space
-#	dmenu_run
+super + @space
+	rofi -show drun
 
 # Gridcoin client
 super + alt + g

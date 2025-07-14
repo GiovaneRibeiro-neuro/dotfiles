@@ -56,6 +56,9 @@ sudo systemctl enable docker.service
 YOUR_USER=$USER
 sudo usermod -aG docker $YOUR_USER
 
+wget https://raw.githubusercontent.com/fiskhest/sxhkd-helper-menu/master/sxhkhm/__init__.py -O ${HOME}/.local/bin/hkhelper.py
+chmod +x .local/bin/hkhelper.py
+
 echo "Restore rclone backup (first, import the correct GPG key)"
 gpg -o $HOME/.config/rclone/rclone.conf -d $HOME/.config/rclone/rclone.conf.bkp
 
