@@ -1,10 +1,9 @@
+#!/usr/bin/env python3
 #
 # hkhelper.py
 # Parse your sxhkdrc file and list your shortcuts
 # source: https://github.com/fiskhest/sxhkd-helper-menu?tab=readme-ov-file
-# 
-
-#!/usr/bin/env python3
+#
 import os
 import re
 import argparse

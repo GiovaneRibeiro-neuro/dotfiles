@@ -1,10 +1,9 @@
+#!/usr/bin/env sh
 #
 # sxhkhmenu
 # Call hkhelper.py and put inside a rofi/dmenu screen
 # source: https://github.com/fiskhest/sxhkd-helper-menu?tab=readme-ov-file
 #
-
-#!/usr/bin/env sh
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 CFG_LOC="${XDG_CONFIG_HOME:-$HOME/.config}/sxhkhm.ini"
 

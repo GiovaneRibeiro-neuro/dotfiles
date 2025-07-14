@@ -8,12 +8,13 @@ My dotfiles and scripts to make my life easier. Works on zsh or bash. Strongly i
 * nerd-fonts (More specifically, ttf-font-awesome; ttf-jetbrains-mono-nerd; ttf-nerd-fonts-symbols)
 * libc e outras bibliotecas de compilação (build-essential in ubuntu ou base-devel in arch)
 
-## Available configurations
+## Some available configurations
 
 * [alacritty](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/alacritty/alacritty.toml)
 * [polybar](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/polybar/config.ini)
 * [picom](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/picom/config.ini)
 * [bspwm](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/bspwm/bspwmrc)/[sxhkd](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/sxhkd/sxhkdrc)
+* [rofi](https://github.com/giovanebribeiro/dotfiles/tree/master/.config/rofi/config.rasi)
 
 ## How can I use it?
 

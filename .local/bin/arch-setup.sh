@@ -27,6 +27,7 @@ pgrep -x pacman > /dev/null && sudo pacman -Sy \
     cronie \                                                                # * cron
     wget \
     boinc \                                                                 # * Help scientific processing
+    rofi \                                                                  # * a powerful menu
     # 
 
 #
