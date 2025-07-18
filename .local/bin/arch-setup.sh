@@ -28,7 +28,7 @@ pgrep -x pacman > /dev/null && sudo pacman -Sy \
     wget \
     boinc \                                                                 # * Help scientific processing
     rofi \                                                                  # * a powerful menu
-    ntfs-3g exfatprogs \                                                    # * drivers para gparted
+    ntfs-3g dosfstools exfatprogs \                                         # * drivers para gparted
     gparted \                                                               # * GUI para gerenciamento de discos
     # 
 
