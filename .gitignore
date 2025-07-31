@@ -14,3 +14,4 @@ Dropbox
 .config/rclone/rclone.conf
 devcontainers-dotfiles/
 .config/starship.toml
+.my_shell_complements
