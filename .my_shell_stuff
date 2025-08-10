@@ -11,7 +11,7 @@ test alias bye > /dev/null 2>&1 || alias bye='sudo shutdown -h now'
 # Permite a extração do Dockerfile de uma determinada imagem
 # exemplo de uso: dfimage -sV=1.36 nginx:latest
 test alias dfimage > /dev/null 2>&1 || alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm alpine/dfimage -sV=1.36"
-test alias wiki >/dev/null 2>&1 || alias wiki='cd $HOME/workspace/wiki && git pull && obsidian && git commit -am "wiki updates (notebook)" && git push'
+test alias wiki >/dev/null 2>&1 || alias wiki='cd $HOME/workspace/wiki && git pull && obsidian && git add --all && git commit -am "wiki updates (notebook)" && git push'
 
 ##
 # FUNCTIONS/APPS
