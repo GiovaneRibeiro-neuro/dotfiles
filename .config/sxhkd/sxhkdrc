@@ -33,7 +33,7 @@ super + e
 
 # obsidian (my wiki)
 super + k
-    obsidian
+    wiki
 
 ## program launcher
 super + @space
