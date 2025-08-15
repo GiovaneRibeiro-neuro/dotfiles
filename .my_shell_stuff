@@ -3,7 +3,7 @@
 ##
 
 test alias cfg > /dev/null 2>&1 || alias cfg='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-test alias up > /dev/null 2>&1 || alias up='arch-update.sh'
+test alias up > /dev/null 2>&1 || alias up='[[ `uname -a | grep "Ubuntu"`  ]] && ubuntu-update.sh || arch-update.sh'
 test alias tmux > /dev/null 2>&1 || alias tmux='tmux -u2'
 test alias clima > /dev/null 2>&1 || alias clima='curl v2.wttr.in'
 test alias bye > /dev/null 2>&1 || alias bye='sudo shutdown -h now'
