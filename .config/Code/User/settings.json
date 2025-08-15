@@ -1,5 +1,6 @@
 {
     "editor.fontSize": 12,
+    "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
     "editor.minimap.renderCharacters": false,
     "editor.suggestSelection": "first",
     "editor.cursorBlinking": "smooth",

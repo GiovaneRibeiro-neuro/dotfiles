@@ -18,6 +18,7 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 sudo snap install alacritty --classic       # emulador de terminal
+sudo apt install tmux
 
 echo "Install Vundle (vim plugin) and install vim plugins"
 [ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions
