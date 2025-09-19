@@ -3,7 +3,7 @@
   email = giovanebribeiro@gmail.com
 [init]
   defaultBranch = master
-	templateDir = ~/.git-templates
+	templateDir = /home/gbr/.git-template
 [color]
   diff = auto
   grep = auto
@@ -110,6 +110,3 @@
 # Specific configurations for my work. Include a second gitconfig if repo inside ~/workspace
 [includeIf "gitdir:~/workspace/"]
   path = ~/workspace/.gitconfig
-[credential]
-	helper = cache
-	credentialStore = gpg

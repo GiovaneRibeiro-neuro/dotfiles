@@ -39,5 +39,3 @@ $ cfg commit -am "lorem ipsum"
 # push to repo
 $ cfg push
 ```
-
-

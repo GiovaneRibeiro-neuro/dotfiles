@@ -30,3 +30,6 @@ echo "Install oh-my-tmux"
 [ ! -d $HOME/.config/tmux ] && mkdir -p $HOME/.config/tmux
 git clone https://github.com/gpakosz/.tmux $HOME/.config/tmux/
 ln -sf $HOME/.config/tmux/.tmux.conf $HOME/.tmux.conf
+
+echo "Install other tools"
+npm install -g @anthropic-ai/claude-code
