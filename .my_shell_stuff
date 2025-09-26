@@ -160,7 +160,7 @@ aws-login() {
     fi
     
     SSO_SESSION_NAME=""
-    [ -z $AWS_SSO_SESSION_NAME ] && SSO_SESSION_NAME="--sso-session $AWS_SSO_SESSION_NAME"
+    [ -z ${AWS_SSO_SESSION_NAME+x} ] || SSO_SESSION_NAME="--sso-session $AWS_SSO_SESSION_NAME"
 
     PROFILE=default
     [ -n "$1" ] && PROFILE=$1
