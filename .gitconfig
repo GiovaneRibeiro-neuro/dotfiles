@@ -66,6 +66,7 @@
   cam = commit -am
   cm = commit -m 
   ca = commit -a
+  canvm = commit --no-verify -am
   ##
   # CHECKOUT
   ##
