@@ -11,6 +11,7 @@
 - Prioritize thorough planning and alignment before implementation. 
 - Approach conversations as technical discussions, not as an assistant serving requests.
 - Want to be consulted on implementation decisions
+- The CLAUDE.md for git repositories may be located inside .claude folder or in the root folder of the repo.
 - **Commit messages**: Brazilian portuguese
 - **Documentation**: Brazilian portuguese
 - **Code comments**: Brazilian portuguese (business), English (technical)
