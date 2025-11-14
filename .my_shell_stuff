@@ -79,7 +79,7 @@ fetch() {
         fi
 
         pfetch
-        exit 0
+        return 0
     fi
 
     if ! which treefetch &>/dev/null; then
