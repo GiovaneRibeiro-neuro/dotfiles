@@ -66,6 +66,7 @@
   cam = commit -am
   cm = commit -m 
   ca = commit -a
+  canvm = commit --no-verify -am
   ##
   # CHECKOUT
   ##
@@ -110,6 +111,3 @@
 # Specific configurations for my work. Include a second gitconfig if repo inside ~/workspace
 [includeIf "gitdir:~/workspace/"]
   path = ~/workspace/.gitconfig
-[credential]
-	helper = cache
-	credentialStore = gpg
