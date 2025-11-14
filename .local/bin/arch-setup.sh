@@ -43,17 +43,6 @@ echo "Install AUR packages"
 [ ! -d $HOME/.aur ] && mkdir -p $HOME/.aur
 AUR_PACKAGES=(google-chrome informant iwgtk visual-studio-code-bin gridcoinresearch)
 
-echo "Install Vundle (vim plugin) and install vim plugins"
-[ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions
-[ ! -d $HOME/.vim/bundle ] && mkdir -p $HOME/.vim/bundle
-git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim/
-vim +PluginInstall +qall
-
-echo "Install oh-my-tmux"
-[ ! -d $HOME/.config/tmux ] && mkdir -p $HOME/.config/tmux
-git clone https://github.com/gpakosz/.tmux $HOME/.config/tmux/
-ln -sf $HOME/.config/tmux/.tmux.conf $HOME/.tmux.conf
-
 echo "Enable docker"
 sudo systemctl enable docker.service
 YOUR_USER=$USER
@@ -61,9 +50,6 @@ sudo usermod -aG docker $YOUR_USER
 
 wget https://raw.githubusercontent.com/fiskhest/sxhkd-helper-menu/master/sxhkhm/__init__.py -O ${HOME}/.local/bin/hkhelper.py
 chmod +x .local/bin/hkhelper.py
-
-echo "Restore rclone backup (first, import the correct GPG key)"
-gpg -o $HOME/.config/rclone/rclone.conf -d $HOME/.config/rclone/rclone.conf.bkp
 
 echo "Load systemctl scripts"
 # according to this link, https://stackoverflow.com/questions/78422507/vs-code-github-auth-not-working-on-linux-due-to-gnome-environment-os-keyring-err, edit gnome-keyring-daemon.service file to add
@@ -75,29 +61,3 @@ systemctl --user daemon-reexec
 systemctl --user restart gnome-keyring-daemon.service
 sudo systemctl start cronie
 sudo systemctl enable cronie
-
-echo "Install frameworks"
-nvm install 22
-sdk install java
-
-
-#echo "Install devcontainer cli"
-#npm -g @devcontainers/cli
-#
-#echo "Install aws cli"
-#curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-#unzip awscliv2.zip
-#sudo ./aws/install
-#rm -rf ./aws
-#rm awscliv2.zip
-
-echo "Install Github CLI"
-(type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
-	&& sudo mkdir -p -m 755 /etc/apt/keyrings \
-	&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-	&& cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
-	&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
-	&& sudo mkdir -p -m 755 /etc/apt/sources.list.d \
-	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-	&& sudo apt update \
-	&& sudo apt install gh -y
