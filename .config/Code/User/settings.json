@@ -123,6 +123,7 @@
             "name": "Community Server Connector",
             "startOnActivation": true
         }
-    ]
+    ],
+    "bruno.defaultCollectionLocation": "/home/gbr/workspace/__bruno__"
     
 }
