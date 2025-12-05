@@ -60,14 +60,6 @@ export TMPDIR=/tmp
 ##
 test alias info >/dev/null 2>&1 || alias info='informant --file $HOME/.cache/informant.dat'
 
-flag_file="/tmp/flag_file"
-if [ ! -f $flag_file ]
-then
-  command -v fetch >/dev/null 2>&1 && { fetch; echo ; touch $flag_file ; }
-  # only works if informant is installed (installed via AUR)
-  command -v informant > /dev/null 2>&1 && { info list --unread; echo; }
-fi
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 if [ ! -f $SDKMAN_DIR/bin/sdkman-init.sh ]; then
