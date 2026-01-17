@@ -124,6 +124,7 @@
             "startOnActivation": true
         }
     ],
-    "bruno.defaultCollectionLocation": "/home/gbr/workspace/__bruno__"
+    "bruno.defaultCollectionLocation": "/home/gbr/workspace/__bruno__",
+    "workbench.editor.empty.hint": "hidden"
     
 }
