@@ -19,6 +19,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 
 sudo snap install alacritty --classic       # emulador de terminal
 sudo apt install tmux
+sudo apt install tesseract-ocr
 
 echo "Install Vundle (vim plugin) and install vim plugins"
 [ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions
