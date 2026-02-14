@@ -1,12 +1,6 @@
 {
-  "enabledPlugins": {},
-  "alwaysThinkingEnabled": true,
   "env": {
     "ENABLE_TOOL_SEARCH": "true"
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/scripts/context-bar.sh"
   },
   "permissions": {
     "allow": [
@@ -49,6 +43,11 @@
       "Bash(jar tf:*)",
       "Bash(javap:*)"
     ]
-  }
-
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/scripts/context-bar.sh"
+  },
+  "enabledPlugins": {},
+  "alwaysThinkingEnabled": true
 }

@@ -3,7 +3,7 @@
   email = giovanebribeiro@gmail.com
 [init]
   defaultBranch = master
-	templateDir = ~/.git-templates
+	templateDir = /home/gbr/.git-template
 [color]
   diff = auto
   grep = auto

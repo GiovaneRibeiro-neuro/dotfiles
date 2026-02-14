@@ -6,7 +6,7 @@ sudo apt update
 sudo apt install -y vim-gtk3               # vim (com clipboard)
 # Add Docker's official GPG key:
 sudo apt-get update
-sudo apt-get install -y ca-certificates curl apt-transport-https gnupg
+sudo apt-get install -y ca-certificates curl apt-transport-https gnupg 
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -30,6 +30,15 @@ sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
 sudo apt-get install -y kubectl
 
+echo "Install kind"
+# For AMD64 / x86_64
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.31.0/kind-linux-amd64
+# For ARM64
+[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.31.0/kind-linux-arm64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+
+
 echo "Install Vundle (vim plugin) and install vim plugins"
 [ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions
 [ ! -d $HOME/.vim/bundle ] && mkdir -p $HOME/.vim/bundle
@@ -44,6 +53,9 @@ ln -sf $HOME/.config/tmux/.tmux.conf $HOME/.tmux.conf
 echo "Install frameworks"
 nvm install 22
 sdk install java
+sdk install maven
+sudo apt install golang-go
+curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.9.0
 
 echo "Install other tools"
 npm install -g @anthropic-ai/claude-code
