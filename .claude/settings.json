@@ -48,6 +48,8 @@
     "type": "command",
     "command": "~/.claude/scripts/context-bar.sh"
   },
-  "enabledPlugins": {},
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
   "alwaysThinkingEnabled": true
 }

@@ -111,3 +111,5 @@
 # Specific configurations for my work. Include a second gitconfig if repo inside ~/workspace
 [includeIf "gitdir:~/workspace/"]
   path = ~/workspace/.gitconfig
+[url "git@github.com:"]
+	insteadOf = https://github.com/
