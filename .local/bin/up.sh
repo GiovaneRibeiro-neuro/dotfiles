@@ -16,6 +16,7 @@ case "$command" in
       echo "❌ Package manager not detected"
       exit 1
     fi
+    common-update.sh
     echo "✅ System upgrade complete"
     ;;
 

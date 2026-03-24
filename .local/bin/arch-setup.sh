@@ -61,3 +61,5 @@ systemctl --user daemon-reexec
 systemctl --user restart gnome-keyring-daemon.service
 sudo systemctl start cronie
 sudo systemctl enable cronie
+
+common-setup.sh
