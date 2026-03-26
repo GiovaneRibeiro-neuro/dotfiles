@@ -1,5 +1,5 @@
 # dotfiles
-My dotfiles and scripts to make my life easier. Works on zsh or bash. Strongly inspired on [this](https://github.com/davidsonfellipe/dotfiles) project (Thanks Davidson!! :D) and [this](https://www.atlassian.com/git/tutorials/dotfiles) link.
+My dotfiles and scripts to make my life easier. Works on zsh or bash. Strongly inspired on [this](https://github.com/davidsonfellipe/dotfiles) project (Thanks Davidson!! :D) and [this](https://www.atlassian.com/git/tutorials/dotfiles) link. For the Claude Code part, I use many scripts, resources and agents adapted from [here](https://github.com/affaan-m/everything-claude-code/tree/main).
 
 ## Pre-requisites
 
