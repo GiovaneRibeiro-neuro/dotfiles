@@ -6,7 +6,18 @@ My dotfiles and scripts to make my life easier. Works on zsh or bash. Strongly i
 * rust (more specifically, cargo: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`) 
 * nvm (and the most recent Node.JS: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash`)
 * nerd-fonts (More specifically, ttf-font-awesome; ttf-jetbrains-mono-nerd; ttf-nerd-fonts-symbols)
-* libc e outras bibliotecas de compilação (build-essential in ubuntu ou base-devel in arch)
+* libc and other build libraries (build-essential in ubuntu or base-devel in arch)
+
+Just make sure that your ssh agent is configured correctly before start:
+
+```bash
+$ cat ~/.ssh/id_rsa # if not present, create one and import the public key on your github account
+$ ls ~/.ssh # if key is present (something like id_ed25519), jump the next 3 commands
+$ ssh-keygen -t ed25519 -C "seu_email@example.com"
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_ed25519
+#... and add the public key to your github account
+```
 
 ## Some available configurations
 
