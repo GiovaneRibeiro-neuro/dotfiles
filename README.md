@@ -3,8 +3,8 @@ My dotfiles and scripts to make my life easier. Works on zsh or bash. Strongly i
 
 ## Pre-requisites
 
-* rust (more specifically, cargo)
-* nvm (and the most recent Node.JS)
+* rust (more specifically, cargo: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`) 
+* nvm (and the most recent Node.JS: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash`)
 * nerd-fonts (More specifically, ttf-font-awesome; ttf-jetbrains-mono-nerd; ttf-nerd-fonts-symbols)
 * libc e outras bibliotecas de compilação (build-essential in ubuntu ou base-devel in arch)
 
