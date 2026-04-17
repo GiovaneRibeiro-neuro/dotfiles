@@ -4,7 +4,7 @@
 echo "Install ubuntu dependencies"
 
 sudo apt update && sudo apt upgrade
-sudo apt install -y vim-gtk3 tmux ca-certificates curl apt-transport-https gnupg            
+sudo apt install -y vim-gtk3 tmux ca-certificates apt-transport-https gnupg            
 
 common-setup.sh
 
