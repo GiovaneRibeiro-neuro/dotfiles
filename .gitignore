@@ -16,3 +16,4 @@ devcontainers-dotfiles/
 .config/starship.toml
 .my_shell_complements
 .my_shell_stuff
+.claude/
