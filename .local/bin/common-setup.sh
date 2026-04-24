@@ -1,25 +1,52 @@
 #!/bin/bash
 
+#
+# VIm plugins
+#
 [ ! -d $HOME/.vim/sessions ] && mkdir -p $HOME/.vim/sessions
 [ ! -d $HOME/.vim/bundle ] && mkdir -p $HOME/.vim/bundle
 [ ! -d $HOME/.vim/bundle/Vundle.vim ] && git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim/
 vim +PluginInstall +qall
-echo "Install Vundle (vim plugin) and install vim plugins (OK)"
+echo "* Install Vundle (vim plugin) and install vim plugins...................(OK)"
 
+#
+# TMUX
+#
 if [ ! -d $HOME/.config/tmux ]; then
     mkdir -p $HOME/.config/tmux
     git clone https://github.com/gpakosz/.tmux $HOME/.config/tmux/
     ln -sf $HOME/.config/tmux/.tmux.conf $HOME/.tmux.conf
 fi
-echo "Install oh-my-tmux (OK)"
+echo "* Install oh-my-tmux....................................................(OK)"
 
-echo "Restore rclone backup (first, import the correct GPG key)"
+#
+# rclone backup
+#
 gpg -o $HOME/.config/rclone/rclone.conf.bkp -d $HOME/.config/rclone/rclone.conf
+echo "* Restore rclone backup (first, import the correct GPG key).............(OK)"
 
-echo "Install other tools"
+#
+# Install shell improvements
+#
+# Zoxide (a better cd command)
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+# Atuin (upgraded shell history)
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+# sesh smart tmux session manager
+go install github.com/joshmedeski/sesh/v2@latest
+echo "* Install shell improvements............................................(OK)"
+
+#
+# Install other tools
+#
 nvm install 22
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.26.2.linux-amd64.tar.gz
 npm install -g @anthropic-ai/claude-code
+echo "* Install other tools...................................................(OK)"
 
+#
+# Dev Tools
+#
 if [ ! -f ~/.dev_host ]; then
     read -p "Should install dev tools? [y/N]: " dev
     dev="${dev:-N}"
@@ -34,7 +61,6 @@ if [ "$dev" != "N" ]; then
     echo "Install frameworks"
     sdk install java
     sdk install maven
-    sudo apt install golang-go
     curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.9.0
 
     echo "Install kind"

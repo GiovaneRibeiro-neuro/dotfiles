@@ -5,6 +5,7 @@ My dotfiles and scripts to make my life easier. Works on zsh or bash. Strongly i
 
 * libc and other build libraries (build-essential in ubuntu or base-devel in arch)
 * cURL
+* go (`rm -rf /usr/local/go && tar -C /usr/local -xzf go1.26.2.linux-amd64.tar.gz`)
 
 Just make sure that your ssh agent is configured correctly before start:
 
