@@ -40,8 +40,9 @@ echo "* Install shell improvements............................................(O
 # Install other tools
 #
 nvm install 22
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.26.2.linux-amd64.tar.gz
+git clone git@github.com:giovanebribeiro/claude-setup.git ~/.claude
 npm install -g @anthropic-ai/claude-code
+uv tool install --python 3.13 posting --with requests
 echo "* Install other tools...................................................(OK)"
 
 #
