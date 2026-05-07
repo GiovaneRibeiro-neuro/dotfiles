@@ -30,6 +30,7 @@ pgrep -x pacman > /dev/null && sudo pacman -Sy \
     rofi \                                                                  # * a powerful menu
     ntfs-3g dosfstools exfatprogs \                                         # * drivers para gparted
     gparted \                                                               # * GUI para gerenciamento de discos
+    the_silver_searcher \                                                   # * Better grep
     # 
 
 #
