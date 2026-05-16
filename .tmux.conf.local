@@ -49,7 +49,7 @@ bind -r L resize-pane -R 10
 # new window retains current path, possible values are:
 #   - true
 #   - false (default)
-tmux_conf_new_window_retain_current_path=false
+tmux_conf_new_window_retain_current_path=true
 
 # new pane retains current path, possible values are:
 #   - true (default)
@@ -68,15 +68,20 @@ tmux_conf_new_session_prompt=false
 
 # split panes using | and -
 unbind-key '"'
-bind-key | split-window -h
+bind-key | split-window -h -c '"#{pane_current_path}"'
 unbind-key %
-bind-key - split-window -v
+bind-key - split-window -v -c '"#{pane_current_path}"'
+
+# Create a new window with same path
+#bind-key c split-window -c "#{pane_current_path}"
 
 # remap window navigation
 unbind-key p
 bind-key < select-window -t:-1
 unbind-key n
 bind-key > select-window -t:+1
+
+set-option -g status-interval 1
 
 
 # -- display -------------------------------------------------------------------
