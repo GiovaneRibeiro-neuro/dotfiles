@@ -8,6 +8,15 @@
 local terminal = "alacritty"
 
 --
+-- AUTOSTART
+--
+hl.on("hyprland.start", function()
+    hl.exec_cmd(terminal)
+    hl.exec_cmd("fnott") -- daemon notifications
+    hl.exec_cmd("systemctl --user start hyprpolkitagent") -- polkit agent
+end)
+
+--
 -- INPUTS
 --
 require("inputs")
