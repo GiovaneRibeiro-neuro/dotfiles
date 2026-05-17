@@ -2,8 +2,6 @@
 
 echo "Install arch dependencies"
 pgrep -x pacman > /dev/null && sudo pacman -Sy \
-    llvm-libs \                                                             # * llvm-utils: OpenCL libraries
-    mesa \                                                                  # * mesa: Video driver
     alacritty \                                                             # * alacritty: Terminal
     bspwm sxhkd \                                                           # * bspwm/sxhkd: A window manager / keybindings
     polybar \                                                               # * polybar: A top bar
