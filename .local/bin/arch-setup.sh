@@ -1,11 +1,42 @@
 #!/bin/bash
 
 ## Install system packages
-pacman -Sy alacritty hyprland fnott pipewire wireplumber \
-    xdg-desktop-portal-hyprland hyprpolkitagent unzip
+pacman -Syy alacritty hyprland fnott pipewire wireplumber \
+    xdg-desktop-portal-hyprland hyprpolkitagent unzip pipewire-jack \
+    ttf-input-nerd firefox docker docker-buildx docker-compose wget \
+    the_silver_searcher tmux otf-font-awesome waybar noto-fonts \
+    ttf-liberation bash-preexec ninja meson cmake nlohmann-json \
+    qt6-base ffmpeg layer-shell-qt pkg-config
+
+echo "Enable docker"
+sudo systemctl enable docker.service
+YOUR_USER=$USER
+sudo usermod -aG docker $YOUR_USER
+
+echo "Enable hyprland plugins"
+hyprpm update
+hyprpm add https://github.com/gfhdhytghd/HyprCapture
+hyprpm enable hyprcapture
+hyprpm reload
+
+echo "Install AUR packages"
+BASEDIR=$PWD
+AUR_PACKAGES=(oguri-git informant) # informant deve ser o último elemento do array.
+[ ! -d $HOME/.aur ] && mkdir -p $HOME/.aur
+for item in "${AUR_PACKAGES[@]}"; do
+    echo "Install: $item"
+    if [ ! -d $HOME/.aur/$item ]; then
+        git clone https://aur.archlinux.org/$item.git $HOME/.aur/$item
+    fi
+    cd $HOME/.aur/$item
+    makepkg -s -i -r -c
+    sudo pacman -U *.zst
+done
+cd $BASEDIR
 
 # install common stuff
-common-setup.sh
+#common-setup.sh
+
 
 #echo "Install arch dependencies"
 #pgrep -x pacman > /dev/null && sudo pacman -Sy \
@@ -45,14 +76,9 @@ common-setup.sh
 ## o systemd e reiniciar o serviço ($ systemctl start --user gnome-keyring-daemon)
 ## 
 #
-#echo "Install AUR packages"
-#[ ! -d $HOME/.aur ] && mkdir -p $HOME/.aur
-#AUR_PACKAGES=(google-chrome informant iwgtk visual-studio-code-bin gridcoinresearch)
+
 #
-#echo "Enable docker"
-#sudo systemctl enable docker.service
-#YOUR_USER=$USER
-#sudo usermod -aG docker $YOUR_USER
+
 #
 #wget https://raw.githubusercontent.com/fiskhest/sxhkd-helper-menu/master/sxhkhm/__init__.py -O ${HOME}/.local/bin/hkhelper.py
 #chmod +x .local/bin/hkhelper.py
