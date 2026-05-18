@@ -1,12 +1,19 @@
 #!/bin/bash
 
+## Remember: when you install Arch, in pacstrap phase, run the command with these initial packages, along the base ones.
+## If you forget, you must install them before run this script.
+
+# pacstrap -K /mnt base linux linux-firmware base-devel networkmanager gvim man-db man-pages texinfo ntfs-3g ntfsprogs
+
 ## Install system packages
 pacman -Syy alacritty hyprland fnott pipewire wireplumber \
     xdg-desktop-portal-hyprland hyprpolkitagent unzip pipewire-jack \
     ttf-input-nerd firefox docker docker-buildx docker-compose wget \
     the_silver_searcher tmux otf-font-awesome waybar noto-fonts \
     ttf-liberation bash-preexec ninja meson cmake nlohmann-json \
-    qt6-base ffmpeg layer-shell-qt pkg-config
+    qt6-base ffmpeg layer-shell-qt pkg-config rofi wl-clipboard \
+    xdg-utils cliphist hyprlock vifm brightnessctl pamixer pipewire-pulse \
+    pavucontrol bluez bluez-utils nerd-fonts
 
 echo "Enable docker"
 sudo systemctl enable docker.service
@@ -19,9 +26,15 @@ hyprpm add https://github.com/gfhdhytghd/HyprCapture
 hyprpm enable hyprcapture
 hyprpm reload
 
+echo "Enable some daemons"
+sudo systemctl start bluetooth.service
+sudo systemctl enable bluetooth.service
+sudo systemctl start NetworkManager.service
+sudo systemctl enable NetworkManager.service
+
 echo "Install AUR packages"
 BASEDIR=$PWD
-AUR_PACKAGES=(oguri-git informant) # informant deve ser o último elemento do array.
+AUR_PACKAGES=(bzmenu informant) # informant deve ser o último elemento do array.
 [ ! -d $HOME/.aur ] && mkdir -p $HOME/.aur
 for item in "${AUR_PACKAGES[@]}"; do
     echo "Install: $item"
