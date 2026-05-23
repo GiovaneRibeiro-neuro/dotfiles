@@ -83,6 +83,8 @@ Plugin 'vim-scripts/loremipsum'
 Plugin 'mhinz/vim-startify'
 " Chordpro support
 Plugin 'vim-scripts/chordpro.vim'
+" REST Client
+Plugin 'diepm/vim-rest-console' 
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -171,6 +173,16 @@ endtry
 " Ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" REST client
+let g:vrc_horizontal_split=1
+
+" Keep vim folds on save
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
 
 ""
 " Look and Feel
