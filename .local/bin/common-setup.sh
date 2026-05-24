@@ -36,13 +36,7 @@ curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 go install github.com/joshmedeski/sesh/v2@latest
 echo "* Install shell improvements............................................(OK)"
 
-#
-# Install other tools
-#
-nvm install 22
-git clone git@github.com:giovanebribeiro/claude-setup.git ~/.claude
-npm install -g @anthropic-ai/claude-code
-uv tool install --python 3.13 posting --with requests
+
 echo "* Install other tools...................................................(OK)"
 
 #
@@ -59,9 +53,22 @@ dev=$(cat ~/.dev_host)
 
 if [ "$dev" != "N" ]; then
 
-    echo "Install frameworks"
-    sdk install java
-    sdk install maven
+    nvm install 22
+
+    # Claude setup
+    git clone git@github.com:giovanebribeiro/claude-setup.git ~/.claude
+    npm install -g @anthropic-ai/claude-code
+    uv tool install --python 3.13 posting --with requests
+    # rtk (https://github.com/rtk-ai/rtk)
+    curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh
+    # serena (claude)
+    uv tool install -p 3.13 serena-agent@latest --prerelease=allow
+    claude mcp add --scope user serena -- serena start-mcp-server --context claude-code --project-from-cwd
+
+    #echo "Install frameworks"
+    #sdk install java
+    #sdk install maven
+    
     curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.9.0
 
     echo "Install kind"
