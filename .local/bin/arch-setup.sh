@@ -13,7 +13,7 @@ pacman -Syy alacritty hyprland fnott pipewire wireplumber \
     ttf-liberation bash-preexec ninja meson cmake nlohmann-json \
     qt6-base ffmpeg layer-shell-qt pkg-config rofi wl-clipboard \
     xdg-utils cliphist hyprlock vifm brightnessctl pamixer pipewire-pulse \
-    pavucontrol bluez bluez-utils nerd-font hypridle zip go fzf
+    pavucontrol bluez bluez-utils nerd-font hypridle zip go fzf cronie
 
 echo "Enable docker"
 sudo systemctl enable docker.service
@@ -31,6 +31,8 @@ sudo systemctl start bluetooth.service
 sudo systemctl enable bluetooth.service
 sudo systemctl start NetworkManager.service
 sudo systemctl enable NetworkManager.service
+sudo systemctl start cronie.service
+sudo systemctl enable cronie.service
 
 echo "Install AUR packages"
 BASEDIR=$PWD
