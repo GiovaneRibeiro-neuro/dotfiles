@@ -49,6 +49,12 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'skanehira/preview-markdown.vim'
 " A better file finder
 Plugin 'ctrlpvim/ctrlp.vim'
+" Must come before vim-markdown
+Plugin 'godlygeek/tabular'
+" A nice markdown editor 
+Plugin 'preservim/vim-markdown'
+" 
+Plugin 'mrded/vim-github-codeowners', {'do': 'npm install'}
 
 
 "
@@ -176,6 +182,12 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " REST client
 let g:vrc_horizontal_split=1
+" Automatically format JSON responses
+let g:vrc_response_default_content_type = 'application/json'
+let g:vrc_output_buffers_custom_mapping = {
+  \ 'application/json': 'jq .',
+  \ 'application/vnd.trillia+json': 'jq .',
+  \ }
 
 " Keep vim folds on save
 augroup remember_folds
@@ -205,9 +217,12 @@ let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
 let g:lightline.active = {}
 let g:lightline.active.left = [ [ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+let g:lightline.active.right = [['codeowners']]
 let g:lightline.component_function = {}
 let g:lightline.component_function.gitbranch = 'gitbranch#name'
+let g:lightline.component_function.codeowners = 'codeowners#whoBufname'
 set guifont=JetBrainsMonoNerdFont:h12
+
 " netrw (vim native file explorer)
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
