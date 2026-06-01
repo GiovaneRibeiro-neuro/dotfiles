@@ -13,7 +13,8 @@ pacman -Syy alacritty hyprland fnott pipewire wireplumber \
     ttf-liberation bash-preexec ninja meson cmake nlohmann-json \
     qt6-base ffmpeg layer-shell-qt pkg-config rofi wl-clipboard \
     xdg-utils cliphist hyprlock vifm brightnessctl pamixer pipewire-pulse \
-    pavucontrol bluez bluez-utils nerd-font hypridle zip go fzf cronie
+    pavucontrol bluez bluez-utils nerd-font hypridle zip go fzf cronie \
+    obsidian
 
 echo "Enable docker"
 sudo systemctl enable docker.service

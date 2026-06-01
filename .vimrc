@@ -212,7 +212,7 @@ set guifont=JetBrainsMonoNerdFont:h12
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
 let g:netrw_winsize=25
-let g:netrw_altv=1
+let g:netrw_altv=0
 " code indentation (https://stackoverflow.com/a/1878983)
 set ts=4 sw=4 et
 let g:indent_guides_enable_on_vim_startup = 1
