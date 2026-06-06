@@ -34,6 +34,8 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 # sesh smart tmux session manager
 go install github.com/joshmedeski/sesh/v2@latest
+# fabric - an unique way to call llms from command line
+curl -fsSL https://raw.githubusercontent.com/danielmiessler/fabric/main/scripts/installer/install.sh | bash
 echo "* Install shell improvements............................................(OK)"
 
 
@@ -79,3 +81,7 @@ if [ "$dev" != "N" ]; then
     chmod +x ./kind
     sudo mv ./kind /usr/local/bin/kind
 fi
+
+echo "Common setup............................................................(OK)"
+echo "!!! OBS: Finish fabric configuration pointing to your llm provider api !!!"
+echo "!!!!!!!!!!!!!!!!!!!!!! e.g. $ fabric --setup !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
