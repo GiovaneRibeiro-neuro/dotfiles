@@ -17,3 +17,4 @@ devcontainers-dotfiles/
 .my_shell_complements
 .my_shell_stuff
 .claude/
+.exports/
