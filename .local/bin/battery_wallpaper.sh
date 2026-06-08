@@ -6,11 +6,10 @@
 # Uses acpi to check battery status, and change wallpaper accordingly
 #
 # Dependencies: acpi, hyprpaper
-# To use this script, create the following crontab line:
 #
 #
 
-while true; do
+main(){
     # if battery is full, set wp to full
     acpi -b | grep -P -o 'Full'
     if [ $? -eq 0 ]; then
@@ -46,6 +45,11 @@ while true; do
             done
         fi
     fi
-    
+}
+
+main
+
+while true; do
+    main
     sleep 60
 done

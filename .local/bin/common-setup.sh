@@ -37,6 +37,10 @@ go install github.com/joshmedeski/sesh/v2@latest
 echo "* Install shell improvements............................................(OK)"
 
 
+#
+# Install other tools
+#
+git clone git@github.com:giovanebribeiro/pass.git
 echo "* Install other tools...................................................(OK)"
 
 #
