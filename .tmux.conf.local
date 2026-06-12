@@ -27,23 +27,6 @@ bind-key "T" run-shell "sesh connect \"$(sesh list --icons | fzf-tmux -p 80%,70%
 # use vim bindings
 setw -g mode-keys vi
 
-# remap pane navigation to vim
-unbind-key j
-bind-key j select-pane -D
-unbind-key k
-bind-key k select-pane -U
-unbind-key h
-bind-key h select-pane -L
-unbind-key l
-bind-key l select-pane -R
-
-# remap size pane 
-bind -r H resize-pane -L 10
-bind -r J resize-pane -D 10
-bind -r K resize-pane -U 10
-bind -r L resize-pane -R 10
-
-
 # -- windows & pane creation ---------------------------------------------------
 
 # new window retains current path, possible values are:
@@ -66,20 +49,20 @@ tmux_conf_new_pane_reconnect_ssh=false
 #   - false (default)
 tmux_conf_new_session_prompt=false
 
-# split panes using | and -
-unbind-key '"'
-bind-key | split-window -h -c '"#{pane_current_path}"'
-unbind-key %
-bind-key - split-window -v -c '"#{pane_current_path}"'
-
-# Create a new window with same path
-#bind-key c split-window -c "#{pane_current_path}"
-
-# remap window navigation
-unbind-key p
-bind-key < select-window -t:-1
-unbind-key n
-bind-key > select-window -t:+1
+## split panes using | and -
+#unbind-key '"'
+#bind-key | split-window -h -c '"#{pane_current_path}"'
+#unbind-key %
+#bind-key - split-window -v -c '"#{pane_current_path}"'
+#
+## Create a new window with same path
+##bind-key c split-window -c "#{pane_current_path}"
+#
+## remap window navigation
+#unbind-key p
+#bind-key < select-window -t:-1
+#unbind-key n
+#bind-key > select-window -t:+1
 
 set-option -g status-interval 1
 
