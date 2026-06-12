@@ -6,9 +6,10 @@
 # Dependências:
 # * rclone
 # * Alguma configuração remota já realizada
+# * profile salvo em ~/.config/rclone-sync/profile_name.conf
 #
 # Uso:
-# rclone-sync.sh <remote_name> <local_dir> <remote_dir>
+# rclone-sync.sh <profile_name>
 #
 
 if [ "$#" != "1" ]; then

@@ -39,6 +39,10 @@ curl -fsSL https://raw.githubusercontent.com/danielmiessler/fabric/main/scripts/
 echo "* Install shell improvements............................................(OK)"
 
 
+#
+# Install other tools
+#
+git clone git@github.com:giovanebribeiro/pass.git
 echo "* Install other tools...................................................(OK)"
 
 #
