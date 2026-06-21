@@ -8,11 +8,12 @@
 --
 hl.on("hyprland.start", function()
     --hl.exec_cmd(terminal)
-    hl.exec_cmd("fnott & waybar & hypridle & hyprpaper") -- daemon notifications + bar + idle management
+    hl.exec_cmd("fnott & hypridle & hyprpaper") -- daemon notifications + idle management
     hl.exec_cmd("systemctl --user start hyprpolkitagent") -- polkit agent
-    hl.exec_cmd("systemctl --user start pipewire-pulse.service") -- polkit agent
-    hl.exec_cmd("wl-paste --type text --watch cliphist store")
-    hl.exec_cmd("wl-paste --type image --watch cliphist store")
+    hl.exec_cmd("systemctl --user start pipewire-pulse.service") -- pipewire pulse
+    hl.exec_cmd("~/.config/hypr/scripts/cliphist-watch.sh")
+    hl.exec_cmd("~/.config/hypr/scripts/wallpaper.sh init")
+    hl.exec_cmd("~/.config/hypr/scripts/pill-daemon.sh")
     hl.exec_cmd("pamixer --set-volume 30")
     hl.exec_cmd("nm-applet")
     hl.exec_cmd("blueman-applet")
