@@ -9,13 +9,13 @@
 pacman -Syy alacritty hyprland fnott pipewire wireplumber \
     xdg-desktop-portal-hyprland hyprpolkitagent unzip pipewire-jack \
     ttf-input-nerd firefox docker docker-buildx docker-compose wget \
-    the_silver_searcher tmux otf-font-awesome waybar noto-fonts \
+    the_silver_searcher tmux otf-font-awesome noto-fonts \
     ttf-liberation bash-preexec ninja meson cmake nlohmann-json \
-    qt6-base ffmpeg layer-shell-qt pkg-config rofi wl-clipboard \
+    qt6-base ffmpeg layer-shell-qt pkg-config wl-clipboard \
     xdg-utils cliphist hyprlock vifm brightnessctl pamixer pipewire-pulse \
     pavucontrol bluez bluez-utils nerd-font hypridle zip go fzf cronie \
     obsidian blueman pwgen gnupg tree git xclip pass cups cups-pdf \
-    hyprshutdown powerline-fonts rclone
+    hyprshutdown powerline-fonts rclone inter-font imagemagick 
 
 echo "Enable docker"
 sudo systemctl enable docker.service
