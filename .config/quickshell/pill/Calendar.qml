@@ -52,8 +52,7 @@ PillSurface {
     }
 
     function firstWeekdayOffset(year, month) {
-        var d = new Date(year, month, 1).getDay();
-        return (d + 6) % 7;
+        return new Date(year, month, 1).getDay();
     }
 
     function daysInMonth(year, month) {
@@ -177,13 +176,13 @@ PillSurface {
             Item {
                 id: wd
                 required property int index
-                readonly property bool weekend: index >= 5
+                readonly property bool weekend: index === 0 || index === 6
                 width: weekdays.width / 7
                 height: 16 * root.s
 
                 Text {
                     anchors.centerIn: parent
-                    text: root.loc.standaloneDayName((wd.index + 1) % 7, Locale.NarrowFormat)
+                    text: root.loc.standaloneDayName(wd.index, Locale.NarrowFormat)
                     color: wd.weekend ? Theme.faint : Theme.dim
                     font.family: Theme.font
                     font.pixelSize: 9 * root.s
@@ -210,7 +209,7 @@ PillSurface {
                 id: cell
                 required property int index
                 readonly property int weekday: index % 7
-                readonly property bool weekend: weekday >= 5
+                readonly property bool weekend: weekday === 0 || weekday === 6
                 width: grid.width / 7
                 height: root.cellH
 
