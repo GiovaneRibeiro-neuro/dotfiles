@@ -626,7 +626,6 @@ Item {
 
                 Row {
                     anchors.verticalCenter: parent.verticalCenter
-                    visible: Battery.present
                     spacing: 12 * pill.s
 
                     Item {
@@ -658,18 +657,33 @@ Item {
                     Item {
                         id: batteryIcon
                         anchors.verticalCenter: parent.verticalCenter
-                        width: battPct.implicitWidth
+                        visible: Battery.present
+                        width: battContent.implicitWidth
                         height: 17 * pill.s
 
-                        Text {
-                            id: battPct
+                        Row {
+                            id: battContent
                             anchors.centerIn: parent
-                            text: Battery.pct + "%"
-                            color: Battery.low ? Theme.vermLit : (Battery.charging ? Theme.flameGlow : Theme.subtle)
-                            font.family: Theme.font
-                            font.pixelSize: 13 * pill.s
-                            font.weight: Battery.charging ? Font.DemiBold : Font.Medium
-                            font.features: { "tnum": 1 }
+                            spacing: 5 * pill.s
+
+                            BatteryGlyph {
+                                anchors.verticalCenter: parent.verticalCenter
+                                s: pill.s
+                                frac: Battery.frac
+                                charging: Battery.charging
+                                low: Battery.low
+                            }
+
+                            Text {
+                                id: battPct
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: Battery.pct + "%"
+                                color: Battery.low ? Theme.vermLit : (Battery.charging ? Theme.flameGlow : Theme.subtle)
+                                font.family: Theme.font
+                                font.pixelSize: 13 * pill.s
+                                font.weight: Battery.charging ? Font.DemiBold : Font.Medium
+                                font.features: { "tnum": 1 }
+                            }
                         }
 
                         MouseArea {
